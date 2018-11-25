@@ -17,19 +17,19 @@ public class SignUpPage {
         this.driver = driver;
     }
 
-   private By emailField = cssSelector("input#register-email");
-   private By confirmEmailField = cssSelector("input#register-confirm-email");
-   private By passwordField = cssSelector("input#register-password");
-   private By nameField = cssSelector("input#register-displayname");
-   private By monthDropDown = cssSelector("select#register-dob-month");
+   private By emailField = By.cssSelector("input#register-email");
+   private By confirmEmailField = By.cssSelector("input#register-confirm-email");
+   private By passwordField = By.cssSelector("input#register-password");
+   private By nameField = By.cssSelector("input#register-displayname");
+   private By monthDropDown = By.cssSelector("select#register-dob-month");
    private String monthDropDownOption = "//select[@id='register-dob-month']/option[text()='%s']";
-   private By dayField = cssSelector("input#register-dob-day");
-   private By yearField = cssSelector("input#register-dob-year");
+   private By dayField = By.cssSelector("input#register-dob-day");
+   private By yearField = By.cssSelector("input#register-dob-year");
    private String sexRadioButton = "//li[@id=\"li-gender\"]/label[normalize-space()='%s']/input";
-   private By shareCheckbox = cssSelector("register-thirdparty");
-   private By registerButton = cssSelector("register-button-email-submit");
+   private By shareCheckbox = By.cssSelector("input#register-thirdparty");
+   private By registerButton = By.cssSelector("a#register-button-email-submit");
    private By errorLabel = xpath("//label[@class='has-error' and string-length(text())>0]");
-   private By errorByText = xpath("//label[@class='has-error' and text()='%s']");
+   private String errorByText = "//label[@class=\"has-error\" and text()=\"%s\"]";
 
     public SignUpPage typeEmail (String email){
         driver.findElement(emailField).sendKeys(email);
@@ -82,8 +82,8 @@ public class SignUpPage {
         return  getErrors().get(number - 1).getText();
     }
     public boolean isErrorVisible(String message){
-        return driver.findElements(xpath(format(message, errorByText))).size() > 0
-                && driver.findElements(xpath(format(message, errorByText))).get(0).isDisplayed();
+        return driver.findElements(xpath(format(errorByText, message))).size() > 0
+                && driver.findElements(xpath(format(errorByText, message))).get(0).isDisplayed();
     }
 
 

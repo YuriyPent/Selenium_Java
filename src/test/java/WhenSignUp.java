@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import steps.SignUpSteps;
+//maven config clean verify -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe
 
 @RunWith(SerenityRunner.class)
 public class WhenSignUp {

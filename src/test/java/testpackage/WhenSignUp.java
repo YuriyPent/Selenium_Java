@@ -1,11 +1,15 @@
+package testpackage;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import steps.SignUpSteps;
-//maven config clean verify -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe
+import testpackage.steps.serenity.SignUpSteps;
+//maven config clean verify -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe -Dserenity.outputDirectory=C:\reports
 
 @RunWith(SerenityRunner.class)
 public class WhenSignUp {
@@ -17,6 +21,7 @@ public class WhenSignUp {
     WebDriver driver;
 
     @Test
+    @Title("When the user types invalid year")
     public void typeInvalidYear() {
         steps.open_signup_page();
         steps.set_month("December");
@@ -35,9 +40,12 @@ public class WhenSignUp {
         steps.type_name("Testname");
         steps.click_signup();
         steps.should_see_error("Email address doesn't match.");
+        steps.should_see_error("Not exist");
+
     }
 
     @Test
+    @Pending
     public void signupWithEmptyPassword() {
         steps.open_signup_page();
         steps.type_email("test@mail.test");

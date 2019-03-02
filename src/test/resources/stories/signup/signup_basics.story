@@ -3,17 +3,14 @@ This story covers basic tests of signup
 
 Scenario: Type invalid year
 Given I open signup page
-When I set month "<month>"
-And I set day "<day>"
-And I set year "<year>"
+When I set date:
+|month    |day|year|
+|December |15 |85  |
+!--|October  |1  |80  |
+!--|September|5  |90  |
 And I check share
 Then I see error "Please enter a valid year."
 And I do not see error "When were you born?"
-Examples:
-|month    |day|year|
-|December |15 |85  |
-|October  |1  |80  |
-|September|5  |90  |
 
 Scenario: Type invalid email
 Meta: @skip

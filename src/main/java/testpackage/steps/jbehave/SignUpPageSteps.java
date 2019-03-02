@@ -5,7 +5,10 @@ import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.jbehave.core.model.ExamplesTable;
 import testpackage.steps.serenity.SignUpSteps;
+
+import java.util.Map;
 
 public class SignUpPageSteps {
 
@@ -15,6 +18,16 @@ public class SignUpPageSteps {
     @Given("I open signup page")
     public void openPage(){
         steps.open_signup_page();
+    }
+
+    @When("I set date: $table")
+    public void setDate(ExamplesTable table){
+//        table.getHeaders();
+        Map<String,String> date = table.getRow(0);
+        steps.set_month(date.get("month"));
+        steps.set_day(date.get("day"));
+        steps.set_year(date.get("year"));
+//        table.getRows();
     }
 
     @When("I set month \"$month\"")

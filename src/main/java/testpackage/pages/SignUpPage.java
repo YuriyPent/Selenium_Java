@@ -4,8 +4,13 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import static java.lang.String.format;
@@ -13,7 +18,12 @@ import static org.openqa.selenium.By.xpath;
 //https://www.spotify.com/us/signup/
 
 @DefaultUrl("https://www.spotify.com/us/signup/")
+
 public class SignUpPage extends PageObject {
+
+    DesiredCapabilities cap = DesiredCapabilities.firefox();
+    URL url = new URL("http://localhost:4444/wd/hub");
+    WebDriver driver = new RemoteWebDriver(url,cap);
 
     private By emailField = By.cssSelector("input#register-email");
     private By confirmEmailField = By.cssSelector("input#register-confirm-email");
@@ -28,6 +38,9 @@ public class SignUpPage extends PageObject {
     private By registerButton = By.cssSelector("a#register-button-email-submit");
     private By errorLabel = xpath("//label[@class='has-error' and string-length(text())>0]");
     private String errorByText = "//label[@class=\"has-error\" and text()=\"%s\"]";
+
+    public SignUpPage() throws MalformedURLException {
+    }
 
     public SignUpPage typeEmail(String email) {
         find(emailField).sendKeys(email);

@@ -14,7 +14,6 @@ Then I see error "Please enter a valid year."
 And I do not see error "When were you born?"
 
 Scenario: Type invalid email
-Meta: @skip
 When I type email "test@mail.test"
 And I type confirmation email "wrong@mail.test"
 And I type name "Testname"

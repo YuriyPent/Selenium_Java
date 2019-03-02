@@ -54,3 +54,7 @@ C:\>java -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe -jar "path_to_file\se
 Run/Debug configurations: 
 
 clean verify -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe
+
+Run remote for grid:
+
+clean verify -Dwebdriver.remote.url=http://localhost:4444/wd/hub

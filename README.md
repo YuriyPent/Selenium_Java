@@ -1,15 +1,15 @@
 # Selenium_Java
-###Инструменты для автоматизации тестирования с Selenium + Java
+### Инструменты для автоматизации тестирования с Selenium + Java
 
-####Установка и запуск Selenium Grid hub:
+#### Установка и запуск Selenium Grid hub:
 
 `java -jar "path_to_file\selenium-server-standalone-3.141.59.jar" -role hub`
 
-####Установка node: 
+#### Установка node: 
 
 `java -jar "path_to_file\selenium-server-standalone-3.141.59.jar" -role node -hub http://localhost:4444/grid/register -port 5555`
 
-####Конфигурация JSON1:
+#### Конфигурация JSON1:
 
 `{
 	"capabilities":
@@ -28,11 +28,11 @@
 	"hub": "http://localhost:4444"
 }`
 
-####Установка node: 
+#### Установка node: 
 
 `java -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe -jar "path_to_file\selenium-server-standalone-3.141.59.jar" -role node -nodeConfig "path_to_file\node1.json"`
 
-####Конфигурация JSON2:
+#### Конфигурация JSON2:
 
 `{
 	"capabilities":
@@ -47,18 +47,18 @@
 	"hub": "http://localhost:4444"
 }`
 
-####Установка node: 
+#### Установка node: 
 
 `java -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe -jar "path_to_file\selenium-server-standalone-3.141.59.jar" -role node -nodeConfig "path_to_file\node2.json"`
 
-####Run/Debug configurations: 
+#### Run/Debug configurations: 
 
 `clean verify -Dwebdriver.gecko.driver=C:\Tools\geckodriver.exe`
 
-####Run remote for grid:
+#### Run remote for grid:
 
 `clean verify -Dwebdriver.remote.url=http://localhost:4444/wd/hub`
 
-####Run jenkins:
+#### Run jenkins:
 
 `java -jar jenkins.war` на другом порту `java -jar jenkins.war --httpPort=8082`

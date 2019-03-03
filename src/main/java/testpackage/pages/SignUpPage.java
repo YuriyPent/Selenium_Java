@@ -4,13 +4,9 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import static java.lang.String.format;
@@ -21,9 +17,9 @@ import static org.openqa.selenium.By.xpath;
 
 public class SignUpPage extends PageObject {
 
-    DesiredCapabilities cap = DesiredCapabilities.firefox();
-    URL url = new URL("http://localhost:4444/wd/hub");
-    WebDriver driver = new RemoteWebDriver(url,cap);
+//    DesiredCapabilities cap = DesiredCapabilities.firefox();
+//    URL url = new URL("http://localhost:4444/wd/hub");
+//    WebDriver driver = new RemoteWebDriver(url,cap);
 
     private By emailField = By.cssSelector("input#register-email");
     private By confirmEmailField = By.cssSelector("input#register-confirm-email");

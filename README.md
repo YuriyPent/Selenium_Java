@@ -11,7 +11,8 @@
 
 #### Configuration JSON1:
 
-`{
+```json
+{
 	"capabilities":
 	[
 		{
@@ -26,7 +27,8 @@
 	],
 	"port": 5555,
 	"hub": "http://localhost:4444"
-}`
+}
+```
 
 #### Install node: 
 
@@ -34,7 +36,8 @@
 
 #### Configuration JSON2:
 
-`{
+```json
+{
 	"capabilities":
 	[
 		{
@@ -45,7 +48,8 @@
 	],
 	"port": 5556,
 	"hub": "http://localhost:4444"
-}`
+}
+```
 
 #### Install node: 
 
@@ -61,4 +65,4 @@
 
 #### Run jenkins:
 
-`java -jar jenkins.war` на другом порту `java -jar jenkins.war --httpPort=8082`
+`java -jar jenkins.war` on another port `java -jar jenkins.war --httpPort=8082`
